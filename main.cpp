@@ -1,46 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
-#include <iostream>
-#include <functional>
-#include <list>
+
+typedef struct CELL{
+	int val;
+	struct cell *next;
+}CELL;
+
+void create(CELL *head, int val); // セルを新規作成する関数
+void index(CELL *head); // セルの一覧を表示する関数
 
 int main(void) {
+	int val;
+	
+	CELL head;
+	head.next = nullptr;
 
-	const int JY = 30;
-	char stationName[JY][30] = {
-		"Tokyo",
-		"Kanda",
-		"Akihabara",
-		"Okachimachi",
-		"Ueno",
-		"Uguisudani",
-		"Nippori",
-		"Nishi-Nippori",
-		"Tabara",
-		"Komagome",
-		"Sugamo",
-		"Otsuka",
-		"Ikebukuro",
-		"Mejiro",
-		"Takadanobaba",
-		"Shin-Okubo",
-		"Shinjuku",
-		"Yoyogi",
-		"Harajuku",
-		"Shibuya",
-		"Ebisu",
-		"Meguro",
-		"Gotanda",
-		"Osaki",
-		"Shinagawa",
-		"Takanawa Gateway",
-		"Tamachi"
-	};
+	while (true) {
+		scanf_s("%d", &val);
 
-	std::list<int> list;
-	std::list<int>::iterator itr;
+		create(&head, val);
+
+		index(&head);
+	}
 
 	return 0;
 }
 
+void create(CELL *head, int val) {
+	CELL* next;
+
+	head = (CELL*)malloc(sizeof(CELL));
+
+	next->val = val;
+	head->next = nullptr;
+
+	while (head->next != nullptr) {
+		head = head->next;
+	}
+
+	head->next = head;
+}
+
+void index(CELL *head) {
+
+	while () {
+		printf("%d\n", head->val);
+	}
+
+}

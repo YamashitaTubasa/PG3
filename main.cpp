@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct cell{
+typedef struct cell
+{
 	int val;
 	struct cell *next;
 }CELL;

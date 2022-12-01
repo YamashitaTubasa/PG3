@@ -1,26 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-typedef struct cell{
-	int val;
+typedef struct cell
+{
+	char str[8];
 	struct cell *next;
 }CELL;
 
-void create(CELL *head, int val); // セルを新規作成する関数
-void index(CELL *head); // セルの一覧を表示する関数
+void create(CELL *endCell, const char buf); // セルを新規作成する関数
+void index(CELL *endCell); // セルの一覧を表示する関数
 
 int main(void) {
-	int val;
+
+	char str[8];
 	
 	CELL head;
 	head.next = nullptr;
 
 	while (true) {
 		printf("好きな数字を入力してください\n入力する値 : ");
-		scanf_s("%d", &val);
+		scanf_s("%s", str, 8);
 		printf("\n");
 
-		create(&head, val);
+		create(&head, str);
 
 		index(&head);
 	}
@@ -28,29 +31,30 @@ int main(void) {
 	return 0;
 }
 
-void create(CELL *head, int val) {
+void create(CELL *endCell, const char *buf) {
 	CELL* newCell;
 
 	newCell = (CELL*)malloc(sizeof(CELL));
 
-	newCell->val = val;
+	strcpy_s(newCell->str, 8, buf);
+	//newCell->str = buf;
 	newCell->next = nullptr;
 
-	while (head->next != nullptr) 
+	while (endCell->next != nullptr) 
 	{
-		head = head->next;
+		endCell = endCell->next;
 	}
 
-	head->next = newCell;
+	endCell = newCell;
 }
 
-void index(CELL *head) {
+void index(CELL *endCell) {
 	printf("入力された値一覧 : [");
 
-	while (head->next != nullptr) 
+	while (endCell->next != nullptr) 
 	{
-		head = head->next;
-		printf("%d, ", head->val);
+		endCell = endCell->next;
+		printf("%d, ", endCell->str);
 
 	}
 

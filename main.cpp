@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct CELL{
+typedef struct cell{
 	int val;
 	struct cell *next;
 }CELL;
@@ -16,7 +16,9 @@ int main(void) {
 	head.next = nullptr;
 
 	while (true) {
+		printf("D‚«‚È”Žš‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n“ü—Í‚·‚é’l : ");
 		scanf_s("%d", &val);
+		printf("\n");
 
 		create(&head, val);
 
@@ -27,24 +29,30 @@ int main(void) {
 }
 
 void create(CELL *head, int val) {
-	CELL* next;
+	CELL* newCell;
 
-	head = (CELL*)malloc(sizeof(CELL));
+	newCell = (CELL*)malloc(sizeof(CELL));
 
-	next->val = val;
-	head->next = nullptr;
+	newCell->val = val;
+	newCell->next = nullptr;
 
-	while (head->next != nullptr) {
+	while (head->next != nullptr) 
+	{
 		head = head->next;
 	}
 
-	head->next = head;
+	head->next = newCell;
 }
 
 void index(CELL *head) {
+	printf("“ü—Í‚³‚ê‚½’lˆê—— : [");
 
-	while () {
-		printf("%d\n", head->val);
+	while (head->next != nullptr) 
+	{
+		head = head->next;
+		printf("%d, ", head->val);
+
 	}
 
+	printf("]\n\n\n");
 }

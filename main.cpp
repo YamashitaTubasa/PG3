@@ -7,8 +7,8 @@ typedef struct cell
 	struct cell *next;
 }CELL;
 
-void create(CELL *head, int val); // セルを新規作成する関数
-void index(CELL *head); // セルの一覧を表示する関数
+void create(CELL *endCell, int val); // セルを新規作成する関数
+void index(CELL *endCell); // セルの一覧を表示する関数
 
 int main(void) {
 	int val;
@@ -29,7 +29,7 @@ int main(void) {
 	return 0;
 }
 
-void create(CELL *head, int val) {
+void create(CELL *endCell, int val) {
 	CELL* newCell;
 
 	newCell = (CELL*)malloc(sizeof(CELL));
@@ -37,21 +37,21 @@ void create(CELL *head, int val) {
 	newCell->val = val;
 	newCell->next = nullptr;
 
-	while (head->next != nullptr) 
+	while (endCell->next != nullptr) 
 	{
-		head = head->next;
+		endCell = endCell->next;
 	}
 
-	head->next = newCell;
+	endCell->next = newCell;
 }
 
-void index(CELL *head) {
+void index(CELL *endCell) {
 	printf("入力された値一覧 : [");
 
-	while (head->next != nullptr) 
+	while (endCell->next != nullptr) 
 	{
-		head = head->next;
-		printf("%d, ", head->val);
+		endCell = endCell->next;
+		printf("%d, ", endCell->val);
 
 	}
 

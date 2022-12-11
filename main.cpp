@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <iostream>
-#include <functional>
 #include <list>
 
 int main(void) {
 
-	const int JY = 30;
-	char stationName[JY][30] = {
+	// Rèü‰w–¼ 
+	std::list<const char*> yamanoteLine = { 
 		"Tokyo",
 		"Kanda",
 		"Akihabara",
@@ -16,7 +15,6 @@ int main(void) {
 		"Ueno",
 		"Uguisudani",
 		"Nippori",
-		"Nishi-Nippori",
 		"Tabara",
 		"Komagome",
 		"Sugamo",
@@ -34,12 +32,46 @@ int main(void) {
 		"Gotanda",
 		"Osaki",
 		"Shinagawa",
-		"Takanawa Gateway",
 		"Tamachi"
 	};
+	
 
-	std::list<int> list;
-	std::list<int>::iterator itr;
+	// Rèü1970”N‚Ì‰w–¼
+	printf("-----1970”N-----\n");
+	for (std::list<const char*>::iterator itr = yamanoteLine.begin(); itr != yamanoteLine.end(); ++itr) {
+		std::cout << *itr << "\n";
+	}
+
+	// ¼“ú•é—¢‰w‚ğ‘}“ü
+	for (std::list<const char*>::iterator itr = yamanoteLine.begin(); itr != yamanoteLine.end(); ++itr) {
+		if (*itr == "Tabara") {
+			itr = yamanoteLine.insert(itr, "Nishi-Nippori");
+			++itr;
+		}
+	}
+
+	// Rèü2019”N‚Ì‰w–¼
+	printf("\n-----2019”N-----\n");
+	for (std::list<const char*>::iterator itr = yamanoteLine.begin(); itr != yamanoteLine.end(); ++itr) {
+		std::cout << *itr << "\n";
+	}
+
+	// ‚—ÖƒQ[ƒgƒEƒFƒC‰w‚ğ‘}“ü
+	for (std::list<const char*>::iterator itr = yamanoteLine.begin(); itr != yamanoteLine.end(); ++itr) {
+		if (*itr == "Tamachi") {
+			itr = yamanoteLine.insert(itr, "Takanawa Gateway");
+			++itr;
+		}
+	}
+
+	// Rèü2022”N‚Ì‰w–¼
+	printf("\n-----2022”N-----\n");
+	for (std::list<const char*>::iterator itr = yamanoteLine.begin(); itr != yamanoteLine.end(); ++itr) {
+
+		std::cout << *itr << "\n";
+	}
+
+	system("Pause");
 
 	return 0;
 }

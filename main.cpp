@@ -23,10 +23,11 @@ int main(void) {
 
 	Sleep(0.5 * 1000);
 
+	cout << Enemy::isAlive << endl;
+	cout << Enemy::isAlive << endl;
+
 	delete enemy2;
 	delete enemy3;
-	cout << Enemy::isAlive << endl;
-	cout << Enemy::isAlive << endl;
 
 	return 0;
 }

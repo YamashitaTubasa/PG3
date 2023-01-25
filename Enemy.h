@@ -7,7 +7,7 @@ class Enemy
 {
 protected:
 public:
-	static int enemyCount;
+	static bool isAlive;
 	Enemy();
 	~Enemy();
 };

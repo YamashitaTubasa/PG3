@@ -1,9 +1,9 @@
 #include "Enemy.h"
 
 Enemy::Enemy() {
-	enemyCount = 1;
+	isAlive = true;
 }
 
 Enemy::~Enemy() {
-	enemyCount = 0;
+	isAlive = false;
 }
